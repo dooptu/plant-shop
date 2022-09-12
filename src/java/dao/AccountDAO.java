@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package dao;
 
 import DBUtils.MyLib;
@@ -8,6 +12,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author LENOVO
+ */
 //lop nay de chua cac function thuc hien cac cau query lay data trong DB
 public class AccountDAO {
 
@@ -97,7 +105,7 @@ public class AccountDAO {
             if (cn != null) {
                 String sql = "SELECT accID, email, password, fullname, phone, status, role\n"
                         + "FROM dbo.Accounts\n"
-                        + "WHERE email =  '" +email+ "' AND password = '" +password+ "' AND status = " +status;
+                        + "WHERE email =  '" + email + "' AND password = '" + password + "' AND status = " + status;
                 Statement st = cn.createStatement();
                 ResultSet table = st.executeQuery(sql);
                 //xu ly dap an
@@ -126,6 +134,41 @@ public class AccountDAO {
     }
 
     //ham nay de chen 1 account vao bang account
+    public static ArrayList<Account> insertAccounts( String email, String password, String fullname, String phone, int status, int role) throws Exception {
+        ArrayList<Account> list = new ArrayList<>();
+        try {
+            Connection cn = MyLib.makeConnection();
+
+            //viet cac query and exec
+            if (cn != null) {
+                String sql = "INSERT INTO dbo.Accounts VALUES (\"" + email + "\",\"" + password + "\",\"" + fullname + "\",\"" + phone + "\",\"" + status + "\",\"" + role +"\");";
+                Statement st = cn.createStatement();
+                ResultSet table = st.executeQuery(sql);
+                //xu ly dap an
+
+                if (table != null) {
+                    while (table.next()) {
+                       
+                        email = table.getString("email");
+                        password = table.getString("password");
+                        fullname = table.getString("fullname");
+                        phone = table.getString("phone");
+                        status = table.getInt("status");
+                        role = table.getInt("role");
+                        Account acc = new Account(email, password, fullname, phone, status, role);
+                        list.add(acc);
+                    }
+                }
+                //dong connecton
+                cn.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
     //ham nay de sua status cua mot account khi biet accID
     //ham nay de sua profile (sua cac cot ngoai tru accID)
 }
