@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package dao;
 
 import DBUtils.MyLib;
@@ -8,7 +12,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
+/**
+ *
+ * @author LENOVO
+ */
 //lop nay de chua cac function thuc hien cac cau query lay data trong DB
 public class AccountDAO {
 
@@ -134,9 +141,9 @@ public class AccountDAO {
 
             //viet cac query and exec
             if (cn != null) {
-                String sql = "INSERT INTO dbo.Accounts VALUES (\"" + email + "\",\"" + password + "\",\"" + fullname + "\",\"" + phone + "\",\"" + status + "\",\"" + role +"\");";
+                String sql = "INSERT INTO dbo.Accounts VALUES (\" "+ email +"\",\" "+ password +" \",\" "+ fullname +" \",\" "+ phone + " \",\" "+ status +" \",\" " + role +" \") ";
                 Statement st = cn.createStatement();
-                ResultSet table = st.executeQuery(sql);
+                int table = st.executeUpdate(sql);
                 //xu ly dap an
 
                 if (table != null) {
@@ -164,4 +171,5 @@ public class AccountDAO {
 
     //ham nay de sua status cua mot account khi biet accID
     //ham nay de sua profile (sua cac cot ngoai tru accID)
+
 }
