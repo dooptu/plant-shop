@@ -25,9 +25,9 @@ public class tester {
         }
         
         System.out.println("-------------------");
-        ArrayList<Account> list2 = AccountDAO.getAccounts(0);
+        list = AccountDAO.getAccounts(0);
         try {
-            for (Account account : list2) {
+            for (Account account : list) {
             System.out.println(account.toString());
         }
         } catch (Exception e) {
@@ -35,16 +35,24 @@ public class tester {
         }
         
         System.out.println("-------------------");
-        ArrayList<Account> list3 = AccountDAO.getAccounts("admin@gmailcom", "123456", 1);
+        list = AccountDAO.getAccounts("admin@gmailcom", "123456", 1);
         try {
-            for (Account account : list3) {
+            for (Account account : list) {
             System.out.println(account.toString());
         }
         } catch (Exception e) {
             e.printStackTrace();
         }
         
-        
+        System.out.println("-------------------");
+        list = AccountDAO.insertAccounts( "ha@gmail.com", "123", "hanguyen", "456", 0, 1);
+        try {
+            for (Account account : list) {
+            System.out.println(account.toString());
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
     }
 }
