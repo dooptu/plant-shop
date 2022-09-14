@@ -96,37 +96,37 @@ public class tester {
         }
         
         System.out.println("-------------------");
-//        System.out.println("Update information account");
-//        String gmailUa;
-//        String pswUa;
-//        String nameUa;
-//        String phoneUa;
-//        int statusUa;
-//        int roleUa;
-//        int idUa;
-//        
-//        System.out.print("Account ID: ");
-//        idUa = Integer.parseInt(sc.nextLine());
-//        System.out.print("Email: ");
-//        gmailUa = sc.nextLine();
-//        System.out.print("Password: ");
-//        pswUa = sc.nextLine();
-//        System.out.print("Full name: ");
-//        nameUa = sc.nextLine();
-//        System.out.print("Phone: ");
-//        phoneUa = sc.nextLine();
-//        System.out.print("Status: ");
-//        statusUa = Integer.parseInt(sc.nextLine());
-//        System.out.print("Role: ");
-//        roleUa = Integer.parseInt(sc.nextLine());
-//     
-//        list = AccountDAO.updateAccount(idUa, gmailUa, pswUa, nameUa, phoneUa, statusUa, roleUa);
-//        try {
-//            for (Account account : list) {
-//            System.out.println(account.toString());
-//        }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        System.out.println("Update information account");
+        String gmailUa;
+        String pswUa;
+        String nameUa;
+        String phoneUa;
+        int statusUa;
+        int roleUa;
+        int idUa;
+        
+        System.out.print("Account ID: ");
+        idUa = Integer.parseInt(sc.nextLine());
+        System.out.print("Email: ");
+        gmailUa = sc.nextLine();
+        System.out.print("Password: ");
+        pswUa = sc.nextLine();
+        System.out.print("Full name: ");
+        nameUa = sc.nextLine();
+        System.out.print("Phone: ");
+        phoneUa = sc.nextLine();
+        System.out.print("Status: ");
+        statusUa = Integer.parseInt(sc.nextLine());
+        System.out.print("Role: ");
+        roleUa = Integer.parseInt(sc.nextLine());
+     
+        list = AccountDAO.updateAccount(idUa, gmailUa, pswUa, nameUa, phoneUa, statusUa, roleUa);
+        try {
+            for (Account account : list) {
+            System.out.println(account.toString());
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
