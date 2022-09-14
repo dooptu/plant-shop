@@ -170,6 +170,31 @@ public class AccountDAO {
     }
 
     //ham nay de sua status cua mot account khi biet accID
+    
+    public static ArrayList<Account> updateStatus(int accId, int status) throws Exception {
+        ArrayList<Account> list = new ArrayList<>();
+        try {
+            Connection cn = MyLib.makeConnection();
+
+            //viet cac query and exec
+            if (cn != null) {
+                String sql = "UPDATE dbo.Accounts \n"
+                        + "SET status = '"+ status +"' \n"
+                        + "WHERE accID = "+ accId +"; ";
+                Statement st = cn.createStatement();
+                int row = st.executeUpdate(sql);
+                //xu ly dap an
+                System.out.println("Row inserted!");
+
+                //dong connecton
+                cn.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
     //ham nay de sua profile (sua cac cot ngoai tru accID)
 
 }
