@@ -56,6 +56,41 @@ public class AccountDAO {
         }
         return result;
     }
+    
+    public static ArrayList<Account> getAccounts(String email, String password) throws Exception {
+        ArrayList<Account> result = new ArrayList<>();
+        //make connection
+        try {
+            Connection cn = MyLib.makeConnection();
+
+            //viet cac query and exec
+            if (cn != null) {
+                String sql = "SELECT accID,email,password,fullname,phone,status,role\n"
+                        + "FROM dbo.Accounts WHERE email = '" + email + "' AND password = '" + password + "';";
+                Statement st = cn.createStatement();
+                ResultSet table1 = st.executeQuery(sql);
+                //xu ly dap an
+
+                if (table1 != null) {
+                    while (table1.next()) {
+                        int accid = table1.getInt("accID");
+                        String fullname = table1.getString("fullname");
+                        String phone = table1.getString("phone");
+                        int status = table1.getInt("status");
+                        int role = table1.getInt("role");
+                        Account acc = new Account(accid, email, password, fullname, phone, status, role);
+                        result.add(acc);
+                    }
+                }
+                //dong connecton
+                cn.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
     //ham nay de lay tat ca cac account voi role = 0/1
 
     public static ArrayList<Account> getAccounts(int role) throws Exception {
