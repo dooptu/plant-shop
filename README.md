@@ -5,6 +5,6 @@
 ### Home page 
 ![image](https://github.com/dooptu/plant-shop/blob/main/web/1.png?raw=true)
 ### Cart
-![image](https://github.com/dooptu/plant-shop/blob/main/web/1.png?raw=true)
+![image](https://github.com/dooptu/plant-shop/blob/main/web/2.png?raw=true)
 ### Manager dashboard
-![image](https://github.com/dooptu/plant-shop/blob/main/web/1.png?raw=true)
+![image](https://github.com/dooptu/plant-shop/blob/main/web/3.png?raw=true)
